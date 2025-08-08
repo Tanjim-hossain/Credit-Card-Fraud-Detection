@@ -63,7 +63,21 @@ cc-fraud-detection/
 └── src/
     └── utils.py                  # Helper functions (thresholding, plots, metrics)
 ```
+## Results
+- Read from models/metadata.json after training:
 
+Algorithm: Logistic Regression (class-weighted)
+
+Rows × Cols: 284,807 × 31
+
+Test split: 20%
+
+ROC-AUC (test): 0.972
+
+PR-AUC (test): 0.716
+
+At threshold = 0.50 (example run in app on full CSV):
+TN=284,246, FP=69, FN=18, TP=474 → Precision=0.873, Recall=0.963, F1=0.916
 ## Notes
 - The V1–V28 features are PCA components from the original dataset; we **only scale** `Amount` and `Time`.
 - **SMOTE** is applied **only on the training set** within the pipeline, to avoid leakage.
